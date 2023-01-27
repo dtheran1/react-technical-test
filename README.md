@@ -9,10 +9,10 @@ js
 
 
 cd prueba tecnica
-npm install @vitejs/plugin-react -E  //Instalamos este plugin para poder crear el punto de entrada con la app 
+npm install @vitejs/plugin-react -E  //Instalamos este plugin para poder crear el punto de entrada con la app
 // la -E es para instalar la version exacta
 
-abrimos el proyecto en code 
+abrimos el proyecto en code
 
 Tenemos que instalar las dependencias de react y react dom
 npm install react react-dom -E
@@ -40,7 +40,7 @@ root.render(
 )
 
 
-!!! IMPORTANTE !!! 
+!!! IMPORTANTE !!!
 al arrancar nuestra aplicacion veremos un problema que no puede renderizar el jsx que tenemos en en el render!
 
 Es facil solucionarlo solo debemos cambiar el tipo de archivo main.js por main.jsx
@@ -50,7 +50,7 @@ y recuerda cambiarlo en el index.html y listo asi tendremos corriendo nuestra ap
 
 !!! otra cosa importante es instalarnos el linter podemos implementar el standard
 npm install standard -D // -D dependencia de desarrollo
-luego nos vamos al package y agregamos estas lineas en el json 
+luego nos vamos al package y agregamos estas lineas en el json
 "eslintConfig": {
     "extends":"./node_modules/standard/eslintrc.json"
   }
