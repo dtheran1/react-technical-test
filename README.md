@@ -55,3 +55,20 @@ luego nos vamos al package y agregamos estas lineas en el json
     "extends":"./node_modules/standard/eslintrc.json"
   }
 }
+
+
+
+# Prueba tēcnica para Juniors y Trainees de React en Live Coding
+
+API's:
+
+- Facts Random: https://catfact.ninja/fact
+- Imagen random: https://cataas.com/cat/says/hello
+
+  endpoint para usar: https://cataas.com/cat/says/${firstWord}?size=50&color=red&json=true
+
+- Recupera un hedo aleatroio de gatos de la primera API.
+- Recuperamos la primera palabra del hecho.
+- Muestra una imagen de un gato con la primera palabra.
+
+muestra una imagen de un gato con la primera palabra del hecho recuperado usando la segunda API
