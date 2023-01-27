@@ -5,14 +5,10 @@ import { getRandomFact } from './services/facts'
 // const CAT_ENDPOINT_IMAGE_URL = `https://cataas.com/cat/says/${firstWord}?size=50&color=red&json=true`
 const CAT_PREFIX_IMAGE_URL = 'https://cataas.com'
 
-export function App () {
-  const [fact, setFact] = useState()
-  const [image, setImage] = useState()
+function useCatImage ({ fact }) {
+  const [imageUrl, setImageUrl] = useState()
 
-  useEffect(() => {
-    getRandomFact().then(newFact => setFact(newFact))
-  }, [])
-
+  // Recuperamos la imagen
   useEffect(() => {
     if (!fact) return
     const threeFirstWords = fact.split(' ', 3).join(' ')
@@ -21,8 +17,19 @@ export function App () {
       .then(res => res.json())
       .then(response => {
         const { url } = response
-        setImage(url)
+        setImageUrl(url)
       })
+  }, [fact])
+
+  return { imageUrl }
+}
+
+export function App () {
+  const [fact, setFact] = useState()
+  const { imageUrl } = useCatImage({ fact })
+
+  useEffect(() => {
+    getRandomFact().then(newFact => setFact(newFact))
   }, [])
 
   const handleClick = async () => {
@@ -36,7 +43,7 @@ export function App () {
       <button onClick={handleClick}>Get random Fact</button>
       <section>
         {fact && <p>{fact}</p>}
-        {image && <img src={`${CAT_PREFIX_IMAGE_URL}${image}`} alt={`Image extracted using the first word in ${fact}`} />}
+        {imageUrl && <img src={`${CAT_PREFIX_IMAGE_URL}${imageUrl}`} alt={`Image extracted using the first word in ${fact}`} />}
       </section>
     </main>
   )
